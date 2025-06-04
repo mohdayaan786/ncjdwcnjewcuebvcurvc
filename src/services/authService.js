@@ -10,7 +10,7 @@ const loginUser = async ({ username, password }) => {
   if (!user || !(await user.comparePassword(password))) {
     throw new Error('Invalid username or password');
   }
-  const token = jwt.sign({ id: user._id }, 'mathan_for_you');
+  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
   return { token };
 };
 

@@ -58,8 +58,8 @@ Set user role to `admin` during registration or manually in the DB.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/mohdayaan786/ncjdwcnjewcuebvcurvc.git
+cd ncjdwcnjewcuebvcurvc
 ````
 
 ### 2. Install dependencies
@@ -71,10 +71,14 @@ npm install
 ### 3. Create `.env` file
 
 ```env
-PORT=5000
+PORT=3000
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>
 JWT_SECRET=your_jwt_secret
-REDIS_URL=redis://default:<password>@<host>:<port>
+REDIS_HOST=redis://default:<password>@<host>:<port>
+REDIS_PORT=17278
+REDIS_USERNAME=your_username
+REDIS_PASSWORD=your_password
+
 ```
 
 ---
@@ -138,15 +142,6 @@ This backend is deployed on:
 * 🔗 **Render** (Web service)
 * 🗃️ **MongoDB Atlas** (Database)
 * ⚡ **Redis Cloud** (Caching & Rate Limiting)
-
----
-
-## 🧠 Future Improvements
-
-* Chapter update & delete APIs (admin only)
-* Performance charts based on solved counts
-* Frontend dashboard (React/Next.js)
-* Unit tests with Jest
 
 ---
 

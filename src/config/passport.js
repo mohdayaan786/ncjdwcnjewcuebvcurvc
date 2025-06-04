@@ -3,7 +3,7 @@ const userRepo = require('../repository/userRepository');
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: 'mathan_for_you',
+  secretOrKey: process.env.JWT_SECRET,
 };
 
 module.exports = (passport) => {
