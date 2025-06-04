@@ -154,6 +154,4 @@ This backend is deployed on:
 
 This project is licensed under the MIT License.
 
-```
-
 ---
