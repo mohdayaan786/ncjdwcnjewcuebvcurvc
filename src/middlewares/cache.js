@@ -1,4 +1,5 @@
-const redisClient = require('../config/redis');
+// Import the redis client object, not the module itself
+const { client: redisClient } = require('../config/redis');
 
 const cacheChapters = async (req, res, next) => {
   try {
@@ -6,13 +7,16 @@ const cacheChapters = async (req, res, next) => {
     const cachedData = await redisClient.get(cacheKey);
 
     if (cachedData) {
+      // Cache hit - send cached response
       return res.status(200).json(JSON.parse(cachedData));
     }
 
-    // If not cached, proceed and cache in controller
+    // Cache miss - override res.json to cache the response
     res.sendResponse = res.json;
     res.json = (body) => {
-      redisClient.setEx(cacheKey, 3600, JSON.stringify(body)); // Cache for 1 hour
+      // Cache for 3600 seconds = 1 hour
+      redisClient.setEx(cacheKey, 3600, JSON.stringify(body))
+        .catch(err => console.error('Redis setEx error:', err));
       res.sendResponse(body);
     };
 

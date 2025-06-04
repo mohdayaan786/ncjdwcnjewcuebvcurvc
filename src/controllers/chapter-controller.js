@@ -1,5 +1,5 @@
 const chapterService = require('../services/chapter-service');
-const redisClient = require('../config/redis');
+const { client: redisClient } = require('../config/redis');
 const fs = require('fs/promises');
 
 const getChapters = async (req, res) => {
